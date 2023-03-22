@@ -33,12 +33,12 @@ function CreateProject() {
                 </div>
                 <div className="input-field">
                     <label htmlFor="content">Project Description</label>
-                    <textarea className="materialize-textarea" id="content" onChange={handleChange} ></textarea>
+                    <textarea rows="8" cols="50" className="materialize-textarea" id="content" onChange={handleChange} ></textarea>
                 </div>
                 <div className="input-field">
                     <button className="btn pink lighten-1 z-depth-0">Create Project</button>
                 </div>
-            </form> -
+            </form> 
             
         </div>
     )
