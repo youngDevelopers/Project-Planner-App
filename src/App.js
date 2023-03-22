@@ -3,6 +3,9 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import NavBar from './components/layout/NavBar';
 import Dashboard from './components/dashboard/Dashboard';
+import ProjectDetail from './components/projects/ProjectDetail';
+import SignIn from './components/auth/SignIn';
+import SignUp from './components/auth/SignUp';
 
 function App() {
   return (
@@ -10,7 +13,10 @@ function App() {
       <div className='App'>
         <NavBar />
         <Routes >
-          <Route path='/' element={<Dashboard/>} />
+          <Route exact path='/' element={<Dashboard/>} />
+          <Route exact path='/projects/:id' element={ <ProjectDetail /> } />
+          <Route exact path='/login' element={ <SignIn /> } />
+          <Route exact path='/signup' element={ <SignUp /> } />
         </Routes>
       </div>
     </BrowserRouter>
