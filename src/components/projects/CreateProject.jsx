@@ -20,11 +20,11 @@ function CreateProject(props) {
     }
 
     const handleChange = (e) => {
-        if(e.target.id === "title" ){
-            setTitle(e.target.value)
-        };
-        if(e.target.id ==="content"){
-            setContent(e.target.value)
+        switch(e.target.id){
+            case "title":
+                setTitle(e.target.value)
+            case "content":
+                setContent(e.target.value)
         }
     }
 
