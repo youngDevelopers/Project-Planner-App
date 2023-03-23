@@ -1,9 +1,9 @@
-import  fbStore from '../../config/firebaseConf';
+import  app from '../../config/firebaseConf';
 
 export const createProject = ( project ) => {
     return (dispatch, getState, {getFirebase, getFirestore}) => { //fiirstly we pause a dispatch and later call a dispatch 
         //make an asyc call from the database
-        const firestoreDB = getFirestore( fbStore);
+        const firestoreDB = getFirestore( app );
         firestoreDB.collection('projects').add({
             ...project,
             authorFirstName: 'Emmanuel',
