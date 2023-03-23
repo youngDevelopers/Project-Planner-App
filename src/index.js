@@ -9,13 +9,13 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';//this will act- as a middleware between dispatched action and reducer(state manager)
 import { reduxFirestore, getFirestore } from 'redux-firestore';
 import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
-import firebaseConfig from './config/firebaseConfig';//this enables our enhancers to know which project we need to access in the firebase database
+import firebaseConf from '././config/firebaseConf';//this enables our enhancers to know which project we need to access in the firebase database
 
 const store = createStore(rootReducer,
   compose(
     applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),
-    reduxFirestore( firebaseConfig ),
-    reactReduxFirebase( firebaseConfig )
+    reduxFirestore( firebaseConf ),
+    reactReduxFirebase( firebaseConf )
   )  
 ) ; //this will create a  redux --store and store it in store
 
