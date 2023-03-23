@@ -1,6 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import { connect } from 'react-redux';
+import createProject from '../../store/actions/projectActions';
+import projectReducer from '../../store/reducers/projectReducer';
 
-function CreateProject() {
+function CreateProject(props) {
 
     const [ title, setTitle ] = useState('');
     const [ content , setContent ] = useState('');
@@ -8,10 +11,12 @@ function CreateProject() {
     const handleFormSubmit = (e) => {
         e.preventDefault()
 
-        console.log({
-            "title": title,
-            "content": content,
-        })
+        props.createProject(
+            {
+                "title": title,
+                "content": content,
+            }
+        )
     }
 
     const handleChange = (e) => {
@@ -26,7 +31,7 @@ function CreateProject() {
     return (
         <div className="container" >
             <form onSubmit={handleFormSubmit} className="white">
-                <h5 className="grey-text text-darken-3 "> Create Project </h5>
+                <h5 className="grey-text text-darken-3 "> Create New Project </h5>
                 <div className="input-field">
                     <label htmlFor="title">Project Title</label>
                     <input type="text" id="title" onChange={handleChange} />
@@ -44,4 +49,10 @@ function CreateProject() {
     )
 }
 
-export default CreateProject
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createProject: project => dispatch(createProject(project))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(CreateProject);

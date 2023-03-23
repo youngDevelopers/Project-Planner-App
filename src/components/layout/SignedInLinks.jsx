@@ -8,7 +8,7 @@ function SignedInLinks() {
                 <NavLink to='/create-project'  >New Project</NavLink>
             </li>
             <li>
-                <NavLink to='/'  >Log Out</NavLink>
+                <NavLink to='/logout'  >Log Out</NavLink>
             </li>
             <li>
                 <NavLink to='/'  className="btn btn-floating pink lighten-1" >EM</NavLink>

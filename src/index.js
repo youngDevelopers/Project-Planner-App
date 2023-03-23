@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './store/reducers/rootReducer';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';//this will act- as a middleware between dispatched action and reducer(state manager)
 
-const store = createStore(rootReducer); //this will create a  redux --store and store it in store
+const store = createStore(rootReducer, applyMiddleware(thunk)) ; //this will create a  redux --store and store it in store
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
