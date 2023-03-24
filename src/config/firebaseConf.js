@@ -2,6 +2,7 @@
 import firebase from "firebase/app";
 import 'firebase/firestore';
 import 'firebase/auth';
+import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,6 +21,6 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-fbStore= firebase.firestore().settings({timestampsInSnapshots:true});//initialise the firestore
+fbStore= app.firestore().settings({timestampsInSnapshots:true});//initialise the firestore
 
-export default firebase;
+export default fbStore;

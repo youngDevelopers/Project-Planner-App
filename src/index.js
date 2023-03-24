@@ -13,7 +13,7 @@ import firebaseConf from '././config/firebaseConf';//this enables our enhancers 
 
 const store = createStore(rootReducer,
   compose(
-    applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),
+    applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),//adding 2 properties to the thunk object
     reduxFirestore( firebaseConf ),
     reactReduxFirebase( firebaseConf )
   )  
