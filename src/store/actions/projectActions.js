@@ -1,9 +1,8 @@
-import  app from '../../config/firebaseConf';
 
 export const createProject = ( project ) => {
     return (dispatch, getState, {getFirebase, getFirestore}) => { //fiirstly we pause a dispatch and later call a dispatch 
         //make an asyc call from the database
-        const firestoreDB = getFirestore( app );
+        const firestoreDB = getFirestore();
         firestoreDB.collection('projects').add({
             ...project,
             authorFirstName: 'Emmanuel',
