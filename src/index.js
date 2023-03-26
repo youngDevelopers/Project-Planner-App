@@ -14,8 +14,8 @@ import app from '././config/firebaseConf';//this enables our enhancers to know w
 const store = createStore(rootReducer,
   compose(
     applyMiddleware(thunk.withExtraArgument({getFirebase, getFirestore})),//adding 2 properties to the thunk object
-    reduxFirestore( app ),
-    reactReduxFirebase( app )
+    //reduxFirestore( app ),
+    //reactReduxFirebase( app )
   )  
 ) ; //this will create a  redux --store and store it in store
 
