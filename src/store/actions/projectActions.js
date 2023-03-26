@@ -1,28 +1,30 @@
 import { collection, addDoc } from "firebase/firestore";
-import {app, db} from '../../config/firebaseConf';
+import {app} from '../../config/firebaseConf';
 
-const createProject = async ( project ) => {
-    return (dispatch, getState, {getFirebase, getFirestore}) => { //fiirstly we pause a dispatch and later call a dispatch 
-        //make an asyc call from the database
-        
-        const db = getFirestore(app)
-        try {
-            await addDoc(collection(db, "projects"), {
+const createProject =  ( project) => {
+
+       return (dispatch, getState, {getFirebase, getFirestore} ) =>{
+            const db = getFirestore(app)
+            addDoc(collection(db, "projects"), {
                 ...project,
                 authorFirstName: 'Emmanuel',
                 authorLastName: 'Damba',
                 authorId: 12345,
                 createdAt: new Date(),
-            });
-            return dispatch({
-                type: 'CREATE PROJECT',
-                project,
-            });
-          } catch (e) {
-            console.error("Error adding document: ", e);
-          }
+            }).then( () =>{
+                dispatch({
+                    type: 'CREATE PROJECT',
+                    project,
+                })
+            }).catch((error) =>{
+                dispatch({
+                    type: 'Create Project Error',
+                    error,
+                })
+            } )
         
-    }
+           
+       }
 };
 
 export default createProject;
