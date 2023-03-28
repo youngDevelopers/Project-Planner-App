@@ -7,6 +7,7 @@ import ProjectDetail from './components/projects/ProjectDetail';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
 import CreateProject from './components/projects/CreateProject'
+import ProjectSummary from './components/projects/ProjectSummary';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <NavBar />
         <Routes >
           <Route exact path='/' element={<Dashboard/>} />
-          <Route exact path='/projects/:id' element={ <ProjectDetail /> } />
+          <Route exact path='/project' element={ <ProjectDetail /> } />
           <Route exact path='/login' element={ <SignIn /> } />
           <Route exact path='/signup' element={ <SignUp /> } />
           <Route exact path='/create-project' element={ <CreateProject /> } />

@@ -10,7 +10,7 @@ function Dashboard (props) {
     const {firestore,projects} = props
     useEffect(() => {
         firestore.get('projects')
-    }, [projects])
+    }, [])
         return (
             <div className="dashboard container">
                 <div className="row">
