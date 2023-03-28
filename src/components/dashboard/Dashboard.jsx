@@ -1,11 +1,16 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import ProjectList from '../projects/ProjectList'
 import Notifications from './Notifications'
 import { connect } from 'react-redux'
+import { firestoreConnect } from 'react-redux-firebase'
+import {compose} from 'redux'
+import { withFirestore} from 'react-redux-firebase'
 
 function Dashboard (props) {
-    const {projects} = props
-    console.log(projects)
+    const {firestore,projects} = props
+    useEffect(() => {
+        firestore.get('projects')
+    }, [projects])
         return (
             <div className="dashboard container">
                 <div className="row">
@@ -21,9 +26,14 @@ function Dashboard (props) {
 }
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return {
-        projects: state.project.projects
+        projects: state.firestore.ordered.projects
     }
 }
 
-export default connect(mapStateToProps)(Dashboard);
+
+export default compose(
+    withFirestore,
+    connect(mapStateToProps)
+  )(Dashboard);

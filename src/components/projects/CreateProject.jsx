@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { connect } from 'react-redux';
 import createProject from '../../store/actions/projectActions';
-import projectReducer from '../../store/reducers/projectReducer';
+//import projectReducer from '../../store/reducers/projectReducer';
 
 function CreateProject(props) {
 
@@ -25,6 +25,7 @@ function CreateProject(props) {
                 setTitle(e.target.value)
             case "content":
                 setContent(e.target.value)
+        
         }
     }
 

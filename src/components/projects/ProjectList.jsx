@@ -1,7 +1,7 @@
 import React from 'react'
 import ProjectSummary from './ProjectSummary'
 
-function ProjectList( {projects} ) {
+function ProjectList( {firestore,projects} ) {
     return (
         <div className="project-list section" >
             { projects && projects.map( (project) => {
